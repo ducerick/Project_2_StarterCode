@@ -1,0 +1,45 @@
+// =================== CS251 DEX Project =================== // 
+//                      Design Document                      //
+//             Phạm Minh Phúc and Bùi Minh Đức               //
+// ========================================================= //  
+
+# TODO: Remove this line and add your group names above
+
+1. Explain why adding and removing liquidity to your exchange does not change the exchange rate.
+
+
+Khi liquidity Producer (LP) thêm thanh khoản vào bể thanh khoản, LP phải chia tài sản cho cặp thanh khoản là bằng nhau, và số lượng mỗi token theo tỷ giá hiện tại.
+Tương tự khi LP rút thanh khoản cũng đồng thời rút tài sản của cặp thanh khoản. Do đó việc thêm hoặc rút không thay đổi tỷ giá cặp thanh khoản.
+
+2. Explain your scheme for rewarding liquidity providers and justify the design decisions you made. How does it satisfy the liquidity rewards requirements outlined in Section 7?
+
+
+Khi một nhà cung cấp mới tham gia, tỷ lệ thanh khoản thuộc sở hữu của mỗi nhà cung cấp tương ứng là được điều chỉnh phụ thuộc vào lượng thanh khoản mới được cung cấp. 
+Để thưởng cho các nhà cung cấp, bất cứ khi nào một giao dịch hoán đổi được thực hiện, người dùng sẽ bị tính một khoản phí nhỏ fee = (3%). Các khoản phí được nạp vào bể thanh khoản
+được tái đầu tư một cách hiệu quả cho đến khi một nhà cung cấp quyết định rút thanh khoản của họ. 
+
+
+3. Describe at least one method you used to minimize your exchange contract's gas usage. Why was this method effective?
+
+
+Trong hàm removeAllLiquidity, kiểm tra để tính toán lượng  thanh khoản tối đa cần xóa và sau đó gọi hàm removeLiquidity 
+Phương pháp này đã giúp giảm kích thước smart contract, do đó giảm lượng mã cần lưu trữ trên chuỗi khối và do đó giảm mức sử dụng gas của contract trao đổi.
+
+
+4. Optional Feedback:
+4a. How much time did you spend on the assignment?
+
+~ 8 tuần
+
+4b. What is one thing that would have been useful to know before starting the assignment?
+
+# TODO: answer question 4(b) here
+
+4c. If you could change one with about this assignment, what would you change?
+
+Cung cấp tài liệu hướng dẫn các bước thực hiện chi tiết, cụ thể hơn.
+
+4d. Please feel free to include any other feedback you may have below.
+
+# TODO: answer question 4(d) here
+Project cần khá nhiều thời gian
